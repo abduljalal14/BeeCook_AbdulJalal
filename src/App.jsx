@@ -1,6 +1,14 @@
+import Header from "./layouts/Header.jsx"
+import Footer from "./layouts/Footer.jsx"
+import Routes from "./routes/index.jsx"
+
 function App() {
   return (
-    <h1>Gbee Cook</h1>
+    <>
+      <Header />
+      <Routes />
+      <Footer />
+    </>
   )
 }
 
