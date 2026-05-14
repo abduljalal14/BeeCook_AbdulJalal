@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import Beranda from '../pages/beranda.jsx';
+import Beranda from '../pages/Beranda.jsx';
 import List from '../pages/List.jsx';
 import Detail from '../pages/Detail.jsx';
 import Kelola from '../pages/Kelola.jsx';

@@ -1,7 +1,7 @@
-@import "tailwindcss";
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import "tailwindcss";
 
 @theme {
   --font-montserrat: "Montserrat", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -19,4 +19,68 @@
   --text-2xl: 20px;
   --text-3xl: 24px;
   --text-4xl: 32px;
+  --text-5xl: 44px;
+  --text-6xl: 64px;
+  --text-7xl: 80px;
+  --text-8xl: 84px;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    background: #ffffff;
+    color: var(--color-secondary);
+    font-family: var(--font-inter);
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .page-container {
+    width: min(100% - 32px, 1120px);
+    margin-inline: auto;
+  }
+
+  .section-spacing {
+    padding-block: clamp(48px, 8vw, 96px);
+  }
+
+  .section-title {
+    font-family: var(--font-montserrat);
+    font-size: clamp(24px, 4.4vw, 40px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+
+  .section-copy {
+    color: #4b5563;
+    font-size: clamp(13px, 1.6vw, 16px);
+    line-height: 1.8;
+  }
 }

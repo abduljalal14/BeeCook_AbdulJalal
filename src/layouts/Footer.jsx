@@ -6,8 +6,8 @@ import xIcon from "../assets/sosmed/socmed-x.png";
 
 function Footer() {
     return (
-        <footer className="bg-secondary text-tertiary pt-16 pb-10 px-6 md:px-16">
-            <div className="max-w-7xl mx-auto">
+        <footer className="bg-secondary pt-16 pb-10 text-tertiary">
+            <div className="page-container">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
                     {/* Logo Section */}
                     <div>
