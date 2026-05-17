@@ -33,13 +33,13 @@ const normalizeList = (items, minimumItems = 1) => {
 const buildPayload = (form) => ({
     name: form.name.trim(),
     description: form.description.trim(),
-    cooking_duration: Number(form.cooking_duration),
-    category_id: Number(form.category_id),
-    nutrition: {
-        calory: Number(form.nutrition.calory || 0),
-        protein: Number(form.nutrition.protein || 0),
-        carbohydrate: Number(form.nutrition.carbohydrate || 0),
-        fat: Number(form.nutrition.fat || 0),
+    cooking_duration: String(form.cooking_duration),
+    category_id: String(form.category_id),
+    nutritions: {
+        calory: String(form.nutrition.calory || 0),
+        protein: String(form.nutrition.protein || 0),
+        carbohydrate: String(form.nutrition.carbohydrate || 0),
+        fat: String(form.nutrition.fat || 0),
     },
     ingredients: form.ingredients
         .map((description) => description.trim())
@@ -48,7 +48,7 @@ const buildPayload = (form) => ({
     recipes: form.recipes
         .map((description, index) => ({
             description: description.trim(),
-            sort_number: index + 1,
+            sort_number: String(index + 1),
         }))
         .filter((recipe) => recipe.description),
 });
@@ -66,16 +66,17 @@ function Resep() {
     const [success, setSuccess] = useState("");
 
     const fillFormFromMenu = useCallback((menu) => {
+        const nutritionData = menu.nutritions ?? menu.nutrition;
         setForm({
             name: menu.name ?? "",
             category_id: menu.category_id ? String(menu.category_id) : "",
             cooking_duration: menu.cooking_duration ? String(menu.cooking_duration) : "",
             description: menu.description ?? "",
             nutrition: {
-                calory: menu.nutrition?.calory ? String(menu.nutrition.calory) : "",
-                protein: menu.nutrition?.protein ? String(menu.nutrition.protein) : "",
-                carbohydrate: menu.nutrition?.carbohydrate ? String(menu.nutrition.carbohydrate) : "",
-                fat: menu.nutrition?.fat ? String(menu.nutrition.fat) : "",
+                calory: nutritionData?.calory ? String(nutritionData.calory) : "",
+                protein: nutritionData?.protein ? String(nutritionData.protein) : "",
+                carbohydrate: nutritionData?.carbohydrate ? String(nutritionData.carbohydrate) : "",
+                fat: nutritionData?.fat ? String(nutritionData.fat) : "",
             },
             ingredients: normalizeList(menu.ingredients ?? [], 3),
             recipes: normalizeList([...(menu.recipes ?? [])].sort((first, second) => first.sort_number - second.sort_number), 3),

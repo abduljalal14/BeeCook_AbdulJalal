@@ -67,7 +67,7 @@ function Detail() {
 
             <section className="page-container pt-11">
                 <h2 className="font-montserrat text-2xl font-extrabold text-secondary">Informasi Nutrisi</h2>
-                <NutritionCards nutrition={menu.nutrition} />
+                <NutritionCards nutrition={menu.nutritions ?? menu.nutrition} />
             </section>
 
             <section className="page-container grid gap-12 pt-20 lg:grid-cols-[0.85fr_1fr] lg:gap-24">
