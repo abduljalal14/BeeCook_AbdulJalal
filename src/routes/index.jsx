@@ -15,6 +15,7 @@ function RoutesIndex() {
             <Route path="/resep" element={<Resep />} />
             <Route path="/kelola" element={<Kelola />} />
             <Route path="/detail" element={<Detail />} />
+            <Route path="/detail/:slug" element={<Detail />} />
         </Routes>
     )
 }
