@@ -105,7 +105,7 @@ function Kelola() {
 
         try {
             setDeletingId(menu.id);
-            await Api.delete(`/menu/${menu.id}`);
+            await Api.delete(`/menu/delete/${menu.id}`);
 
             if (menus.length === 1 && currentPage > 1) {
                 setPage(currentPage - 1);
