@@ -84,7 +84,7 @@ function Kelola() {
         try {
             setUploading(true);
             setUploadError("");
-            await Api.post(`/menu/upload/${selectedMenu.id}`, formData, {
+            await Api.put(`/menu/upload/${selectedMenu.id}`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
